@@ -23,9 +23,9 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-10">
           <Link to="/">
             <img
-              src="/lovable-uploads/ab9fb514-898d-486d-96e9-b5d8cbb1855c.png"
-              alt="T2T Worth the Trust Logo"
-              className="h-12 w-auto object-contain"
+              src="/lovable-uploads/5816b89c-e6bd-463a-b497-f843224f0a79.png"
+              alt="T2T Theory to Trade Logo"
+              className="h-16 w-auto object-contain"
               style={{ minWidth: 84 }}
             />
           </Link>
@@ -85,4 +85,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
