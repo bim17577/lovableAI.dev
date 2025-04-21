@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "../ui/button";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -21,15 +21,18 @@ const Navbar: React.FC = () => {
       <nav className="flex items-center justify-between max-w-[1240px] mx-auto py-4 px-6 gap-4 relative">
         {/* Logo */}
         <div className="flex items-center gap-10">
-          <img
-            src="/lovable-uploads/64dc7394-86e2-4b68-90e9-8095e67228e9.png"
-            alt="Logo"
-            className="h-10 w-auto"
-          />
+          <Link to="/">
+            <img
+              src="/lovable-uploads/ab9fb514-898d-486d-96e9-b5d8cbb1855c.png"
+              alt="T2T Worth the Trust Logo"
+              className="h-12 w-auto object-contain"
+              style={{ minWidth: 84 }}
+            />
+          </Link>
 
           {/* Navigation links */}
           <ul className="flex items-center gap-1 text-[#343434] text-lg font-medium">
-            {navLinks.map((link, idx) => (
+            {navLinks.map((link) => (
               <li key={link.name} className="relative">
                 <Link
                   to={link.path}
