@@ -23,8 +23,11 @@ const ClientForm: React.FC = () => {
       <Navbar />
 
       {/* Banner Section */}
-      <div className="z-0 w-full overflow-hidden text-[67px] text-[rgba(212,212,211,1)] font-extrabold leading-[0.3] mt-[53px] max-md:max-w-full max-md:text-[40px] max-md:mt-10">
-        <div className="bg-[rgba(11,53,98,1)] w-full pl-[90px] pr-[70px] pt-[196px] pb-[152px] max-md:text-[40px] max-md:max-w-full max-md:pt-[100px] max-md:pb-[110px] max-md:px-5">
+      <div className="z-0 w-full overflow-hidden mt-[53px] max-md:max-w-full max-md:mt-10">
+        <div className="bg-[rgba(11,53,98,1)] w-full max-md:max-w-full max-md:px-5 
+                        flex justify-center items-center 
+                        text-[67px] text-[rgba(212,212,211,1)] font-extrabold leading-[0.3]
+                        pl-[90px] pr-[70px] pt-[196px] pb-[152px] max-md:text-[40px] max-md:pt-[100px] max-md:pb-[110px]">
           Project Creation
         </div>
       </div>
