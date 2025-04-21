@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
@@ -24,7 +25,7 @@ const ClientForm: React.FC = () => {
       {/* Banner Section */}
       <div className="z-0 w-full overflow-hidden text-[67px] text-[rgba(212,212,211,1)] font-extrabold leading-[0.3] mt-[53px] max-md:max-w-full max-md:text-[40px] max-md:mt-10">
         <div className="bg-[rgba(11,53,98,1)] w-full pl-[90px] pr-[70px] pt-[196px] pb-[152px] max-md:text-[40px] max-md:max-w-full max-md:pt-[100px] max-md:pb-[110px] max-md:px-5">
-          Client Form
+          Project Creation
         </div>
       </div>
 
@@ -32,7 +33,7 @@ const ClientForm: React.FC = () => {
       <div className="z-0 flex w-full flex-col overflow-hidden items-center justify-center mt-[53px] px-20 py-11 max-md:max-w-full max-md:mt-10 max-md:px-5">
         <div className="flex w-full max-w-[1128px] flex-col items-stretch max-md:max-w-full">
           <div className="text-[rgba(11,53,98,1)] text-3xl font-extrabold leading-[46px] text-center max-md:max-w-full">
-            Share your business challenge by completing the questionnaire below,
+            Share your project challenge by completing the questionnaire below,
             or feel free to contact us directly for a personalized discussion.
           </div>
 
@@ -126,3 +127,4 @@ const ClientForm: React.FC = () => {
 };
 
 export default ClientForm;
+
