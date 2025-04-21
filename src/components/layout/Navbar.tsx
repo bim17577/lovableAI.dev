@@ -1,38 +1,85 @@
+
 import React from "react";
+import { Button } from "../ui/button";
+import { useLocation, Link } from "react-router-dom";
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Projects", path: "/projects" },
+  { name: "Leader Board", path: "/leaderboard" },
+  { name: "Contact", path: "/contact" },
+];
 
 const Navbar: React.FC = () => {
+  const location = window.location.pathname;
+
   return (
-    <div className="z-0 flex w-full items-stretch gap-[40px_84px] overflow-hidden text-xl font-semibold leading-none flex-wrap pl-20 max-md:max-w-full max-md:pl-5">
-      <div className="flex items-stretch gap-10 text-[rgba(119,117,117,1)] grow shrink basis-auto my-auto max-md:max-w-full">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/ef5cdcaaf2ddf753ab827aa8c2617ff992136b3d?placeholderIfAbsent=true"
-          alt="Logo"
-          className="aspect-[1.33] object-contain w-[93px] shrink-0"
-        />
-        <div className="text-black whitespace-nowrap mt-9">
-          <div>Home</div>
-          <div className="shrink-0 h-0.5 mt-[18px]" />
+    <header className="w-full bg-white shadow-[0_2px_4px_rgba(0,0,0,0.01)] fixed top-0 left-0 z-50">
+      {/* Top blue border */}
+      <div className="h-1 w-full bg-[#094C99]" />
+      <nav className="flex items-center justify-between max-w-[1240px] mx-auto py-4 px-6 gap-4 relative">
+        {/* Logo */}
+        <div className="flex items-center gap-10">
+          <img
+            src="/lovable-uploads/64dc7394-86e2-4b68-90e9-8095e67228e9.png"
+            alt="Logo"
+            className="h-10 w-auto"
+          />
+
+          {/* Navigation links */}
+          <ul className="flex items-center gap-1 text-[#343434] text-lg font-medium">
+            {navLinks.map((link, idx) => (
+              <li key={link.name} className="relative">
+                <Link
+                  to={link.path}
+                  className={[
+                    "inline-block px-5 py-2 transition-colors duration-150 hover:text-[#094C99]",
+                    location === link.path ? "font-extrabold text-[#094C99]" : "",
+                  ].join(" ")}
+                >
+                  {link.name}
+                  {/* Active underline */}
+                  {location === link.path && (
+                    <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-8 h-1 bg-[#094C99] rounded-[2px]" />
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="my-auto">About Us</div>
-        <div className="mt-9">Projects</div>
-        <div className="basis-auto mt-9">Leader Board</div>
-        <div className="my-auto">Contact</div>
-      </div>
-      <div className="relative min-h-[84px] gap-3.5 text-black grow shrink basis-auto pl-20 pr-[26px] py-3.5 max-md:px-5">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/f574aeca83e4c53cd20b4421ac216f17cabd142d?placeholderIfAbsent=true"
-          alt="Background"
-          className="absolute h-full w-full object-cover inset-0"
-        />
-        <div className="relative bg-white px-[33px] py-[19px] rounded-[10px] max-md:px-5">
-          Sign In
+
+        {/* Right action area */}
+        <div className="flex items-center gap-3 relative">
+          {/* Diagonal divider */}
+          <div
+            className="hidden md:block absolute left-[-48px] top-1/2 -translate-y-1/2"
+            aria-hidden="true"
+          >
+            <svg width="48" height="48" viewBox="0 0 60 60" fill="none" className="h-12 w-12">
+              <polygon points="0,0 60,0 0,60" fill="#094C99" />
+            </svg>
+          </div>
+          <Button
+            variant="outline"
+            className="border-[#094C99] text-[#094C99] px-6 rounded-md font-semibold bg-white hover:bg-[#f5faff] shadow-none"
+            style={{ borderWidth: "2px" }}
+          >
+            Sign in
+          </Button>
+          <Button
+            variant="default"
+            className="bg-[#094C99] hover:bg-[#296cb2] px-6 rounded-md font-semibold text-white shadow-none"
+          >
+            Log in
+          </Button>
         </div>
-        <div className="relative bg-white px-[35px] py-[19px] rounded-[10px] max-md:px-5">
-          Log In
-        </div>
-      </div>
-    </div>
+      </nav>
+      {/* Spacing to offset fixed header */}
+      <div className="h-[73px] md:h-[73px]" />
+    </header>
   );
 };
 
 export default Navbar;
+
