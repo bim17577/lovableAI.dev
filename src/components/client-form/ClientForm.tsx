@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
@@ -10,8 +9,23 @@ import CheckboxGroup from "./CheckboxGroup";
 import DatePicker from "./DatePicker";
 import SubmitButton from "./SubmitButton";
 
+const initialFormData = {
+  companyName: "",
+  industry: "",
+  companyWebsite: "",
+  email: "",
+};
+
 const ClientForm: React.FC = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(initialFormData);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = () => {
     console.log("Form submitted:", formData);
@@ -22,12 +36,21 @@ const ClientForm: React.FC = () => {
     <div className="bg-[rgba(248,248,248,1)] relative overflow-hidden">
       <Navbar />
 
+      {/* Logo above the blue banner */}
+      <div className="flex w-full justify-center pt-14 pb-3">
+        <img
+          src="/lovable-uploads/5816b89c-e6bd-463a-b497-f843224f0a79.png"
+          alt="Logo"
+          className="h-28 max-w-full object-contain"
+        />
+      </div>
+
       {/* Banner Section */}
-      <div className="z-0 w-full overflow-hidden mt-[53px] max-md:max-w-full max-md:mt-10">
+      <div className="z-0 w-full overflow-hidden mt-[0px] max-md:max-w-full">
         <div className="bg-[rgba(11,53,98,1)] w-full max-md:max-w-full max-md:px-5 
                         flex justify-center items-center 
                         text-[67px] text-[rgba(212,212,211,1)] font-extrabold leading-[0.3]
-                        pl-[90px] pr-[70px] pt-[196px] pb-[152px] max-md:text-[40px] max-md:pt-[100px] max-md:pb-[110px]">
+                        pl-[90px] pr-[70px] pt-[100px] pb-[85px] max-md:text-[40px] max-md:pt-[60px] max-md:pb-[60px]">
           Project Creation
         </div>
       </div>
@@ -52,11 +75,20 @@ const ClientForm: React.FC = () => {
                     ]}
                   />
 
-                  <FormInput label="Company Name" icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/0c24e1a96b54c076d93cb4bd81bde963258ed403?placeholderIfAbsent=true" />
+                  <FormInput
+                    label="Company Name"
+                    icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/0c24e1a96b54c076d93cb4bd81bde963258ed403?placeholderIfAbsent=true"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                  />
 
                   <FormInput
                     label="Area of the project (Industry)"
                     icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/f97bd42c56d0b623f13e677164887cddc7d882b6?placeholderIfAbsent=true"
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
@@ -71,9 +103,21 @@ const ClientForm: React.FC = () => {
                     ]}
                   />
 
-                  <FormInput label="Company Website" icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/21d50e16fec1fe34c51ae66f921669a1389f1506?placeholderIfAbsent=true" />
+                  <FormInput
+                    label="Company Website"
+                    icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/21d50e16fec1fe34c51ae66f921669a1389f1506?placeholderIfAbsent=true"
+                    name="companyWebsite"
+                    value={formData.companyWebsite}
+                    onChange={handleInputChange}
+                  />
 
-                  <FormInput label="Email Address" icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/0c24e1a96b54c076d93cb4bd81bde963258ed403?placeholderIfAbsent=true" />
+                  <FormInput
+                    label="Email Address"
+                    icon="https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/0c24e1a96b54c076d93cb4bd81bde963258ed403?placeholderIfAbsent=true"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
                 </div>
               </div>
             </div>
@@ -130,4 +174,3 @@ const ClientForm: React.FC = () => {
 };
 
 export default ClientForm;
-
