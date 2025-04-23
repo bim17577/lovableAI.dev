@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+import { Checkbox } from "../ui/checkbox";
 
 interface CheckboxOption {
   label: string;
@@ -28,23 +30,22 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ title, options }) => {
       </div>
       <div className="self-center flex w-full max-w-[1047px] gap-[40px_100px] text-[15px] text-[rgba(43,42,42,1)] font-medium leading-[27px] flex-wrap max-md:max-w-full">
         {options.map((option, index) => (
-          <div key={index} className="flex-1 max-md:max-w-full">
+          <div 
+            key={index} 
+            className="flex-1 max-md:max-w-full"
+            onClick={() => toggleOption(option.value)}
+          >
             <div
-              className="border flex items-stretch gap-5 justify-between px-4 py-[11px] rounded-[10px] border-black border-solid max-md:max-w-full cursor-pointer"
-              onClick={() => toggleOption(option.value)}
+              className="border flex items-stretch gap-5 justify-between px-4 py-[11px] rounded-[10px] border-black border-solid max-md:max-w-full cursor-pointer hover:bg-gray-50 transition-colors"
             >
-              <div>{option.label}</div>
-              <img
-                src={
-                  selectedOptions.includes(option.value) ? "https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/9561f1bf5b04803f95caaefb62601a2b5b2e26f9?placeholderIfAbsent=true" : "https://cdn.builder.io/api/v1/image/assets/19d7897ab9ee47debf28f9b69f2cc8db/d017dba1ba4c0b78f8be40e84984394b12d4f992?placeholderIfAbsent=true"
-                }
-                alt={
-                  selectedOptions.includes(option.value)
-                    ? "Checked"
-                    : "Unchecked"
-                }
-                className="aspect-[1] object-contain w-5 shrink-0 my-auto"
-              />
+              <div className="flex-1">{option.label}</div>
+              <div className="flex items-center justify-center w-5 h-5">
+                <Checkbox 
+                  checked={selectedOptions.includes(option.value)}
+                  onCheckedChange={() => toggleOption(option.value)}
+                  className="h-5 w-5 rounded-sm border-black"
+                />
+              </div>
             </div>
           </div>
         ))}
